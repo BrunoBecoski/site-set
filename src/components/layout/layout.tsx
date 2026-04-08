@@ -1,3 +1,4 @@
+import { Footer } from "../footer"
 import { Header } from "../header"
 
 type LayoutProps = {
@@ -13,7 +14,7 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
 
-      <footer></footer>
+      <Footer />
     </div>
   )
 }
