@@ -1,8 +1,8 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { Logo } from "../logo"
-import { ActiveLink } from "../active-link"
-import { Button } from "../ui/button"
+import { Logo } from "../logo";
+import { ActiveLink } from "../active-link";
+import { Button } from "../ui/button";
 
 export const Header = () => {
   return (
