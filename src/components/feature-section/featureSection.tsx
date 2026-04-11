@@ -1,12 +1,12 @@
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
-import { Button } from "../ui/button"
-import Image from "next/image"
+import { Button } from "../ui/button";
 
 export const FeatureSection = () => {
   return (
-    <section className="container bg-gray-700 grid gap-6 grid-cols-1 md:grid-cols-2 pb-8 pt-8 md:py-10 p-6">
+    <section className="container bg-gray-700 grid gap-6 grid-cols-1 md:grid-cols-2 pt-10 pb-18 md:pt-20 md:pb-44">
       <div className="flex flex-col gap-4 bg-gray-500 p-6 rounded-xl md:p-12">
         <span className="text-body-tag uppercase text-blue-200 bg-blue-400 px-3 py-1.5 rounded-sm w-fit">
           simples
@@ -31,13 +31,13 @@ export const FeatureSection = () => {
             <span className="text-body-tag uppercase text-blue-200 bg-blue-400 px-3 py-1.5 rounded-sm w-fit">
               personalizável
             </span>
-            <h2 className="text-gray-100 text-heading-lg">
+            <h2 className="text-gray-100 text-heading-lg max-w-md">
               Tenha uma loja online personalizada com a cara da sua marca
             </h2>
 
             <Button className="md:w-fit hidden mt-4 md:mt-auto md:flex" asChild>
               <Link href="/criar-loja">
-                Crie a loja grátis
+                Criar a loja grátis
                 <ArrowRight />
               </Link>
             </Button>
@@ -56,7 +56,7 @@ export const FeatureSection = () => {
 
             <Button className="w-full gap-2 mt-4 md:hidden md:mt-auto " asChild>
               <Link href="/criar-loja">
-                Crie a loja grátis
+                Criar a loja grátis
                 <ArrowRight />
               </Link>
             </Button>
