@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowRight, Clock, Store } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "../ui/button";
+import { Button } from "../../../../components/ui/button";
 
 export const HeroSection = () => {
   return (
@@ -14,8 +14,8 @@ export const HeroSection = () => {
           </h1>
 
           <div className="flex flex-col items-center justify-center gap-4 md:items-start lg:items-start">
-            <div>
-              <div className="flex items-center gap-3 ">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-3">
                 <Clock className="text-cyan-100 size-5" />
                 <span className="text-gray-200 text-body-md">
                   Crie o seu site em menos de 5 minutos
