@@ -23,7 +23,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className={`${inter.variable} ${ptSansCaption.variable} relative flex min-h-screen flex-col bg-gray-700 font-inter`}>
       <Header />
 
-      <main className="flex-1 flex flex-col mt-16">
+      <main className="flex-1 flex flex-col mt-24">
         {children}
       </main>
 

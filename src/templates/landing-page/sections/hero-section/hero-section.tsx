@@ -6,12 +6,12 @@ import { Button } from "../../../../components/ui/button";
 
 export const HeroSection = () => {
   return (
-    <section className="container relative flex items-center justify-center my-20">
+    <section className="container relative flex items-center justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-14 min-h-80 md:h-144 items-center">
         <div className="flex flex-col items-center justify-center gap-4 md:items-start lg:items-start">
-          <h1 className="text-gray-100 text-heading-hg font-sans">
+          <h1 className="text-gray-100 text-heading-hg font-sans text-center md:text-left" >
             Venda seus produtos como afiliado em um único lugar
-          </h1>
+           </h1>
 
           <div className="flex flex-col items-center justify-center gap-4 md:items-start lg:items-start">
             <div className="flex flex-col gap-2">
@@ -30,7 +30,7 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 mt-5 text-white items-center md:items-start lg:items-start">
+            <div className="flex flex-col gap-4 mt-10 md:mt-14 text-white items-center md:items-start lg:items-start">
               <Button className="w-fit" asChild> 
                 <Link href="/criar-loja">
                   Criar a loja grátis

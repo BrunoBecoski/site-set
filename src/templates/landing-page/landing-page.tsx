@@ -8,7 +8,7 @@ import {
 
 export const LandingPage = () => {
   return (
-    <article className="flex flex-col">
+    <article className="flex flex-col gap-20 md:gap-30">
       <HeroSection />
       <FeatureSection />
       <SupportSection />
