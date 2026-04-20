@@ -14,10 +14,10 @@ export function BlogList() {
     ? `Resultados de busca para: "${querySearch}"`
     : 'Dicas e estratégias para impulsionar seu negócio'
 
-  const posts = querySearch 
-    ? allPosts.filter((post) => 
-        post.title.toLocaleLowerCase().includes(querySearch)
-      ) 
+  const posts = querySearch
+    ? allPosts.filter((post) =>
+      post.title.toLocaleLowerCase().includes(querySearch)
+    )
     : allPosts
 
   const hasPosts = posts.length > 0
@@ -65,13 +65,11 @@ export function BlogList() {
       }
 
       {!hasPosts &&
-      <div className="container px-8">
-
-        <div className="flex flex-col items-center justify-center gap-8 border-2 border-dashed border-gray-300 p-8 md:p-12 rounded-lg">
-          <Inbox className="size-12 text-cyan-100"/>
-
-          <h2 className="text-heading-md text-gray-200 font-sm text-center">Nenhum post encontrado.</h2>
-        </div>
+        <div className="container px-8">
+          <div className="flex flex-col items-center justify-center gap-8 border-2 border-dashed border-gray-300 p-8 md:p-12 rounded-lg">
+            <Inbox className="size-12 text-cyan-100" />
+            <h2 className="text-heading-md text-gray-200 font-sm text-center">Nenhum post encontrado.</h2>
+          </div>
         </div>
       }
     </div>
