@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Inbox } from "lucide-react";
 
+import { Avatar } from "@/components/avatar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,7 +16,8 @@ import {
 export default function PostPage() {
   const router = useRouter()
   const slug = router.query.slug as string
-  const post = allPosts.find((post) => post.slug.includes(slug))
+  const post = allPosts.find((post) => post.slug.toLowerCase() === slug?.toLowerCase())
+  const publishedDate = new Date(post?.date || new Date).toLocaleDateString('pt-BR')
 
   return (
     <main>
@@ -43,7 +45,7 @@ export default function PostPage() {
 
           <div className="grid grid-col-1 lg:-cols-[1fr_300px] gap-6 lg:gap-12">
             <article className="bg-gray-600 rounded-lg overflow-hidden border-2 border-gray-400">
-              <figure className="relative aspect-16/10 w-full overflow-hidden rounded-lg ">
+              <figure className="relative aspect-16/10 w-full overflow-hidden rounded-lg">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -52,6 +54,32 @@ export default function PostPage() {
                   className="object-cover"
                 />
               </figure>
+
+              <header className="p-4 md:p-6 lg:p-12 pb-0">
+                <h1 className="text-gray-100 text-heading-lg md:text-heading-xl font-sans text-balance mb-6">
+                  {post.title}
+                </h1>
+
+                <Avatar.Container>
+                  <Avatar.Image
+                    src={post.author.avatar}
+                    alt={post.author.name}
+                  />
+
+                  <Avatar.Content>
+                    <Avatar.Title>
+                      {post.author.name}
+                    </Avatar.Title>
+
+                    <Avatar.Description>
+                      Publicado em {' '}
+                      <time dateTime={post.date}>
+                        {publishedDate}
+                      </time>
+                    </Avatar.Description>
+                  </Avatar.Content>
+                </Avatar.Container>
+              </header>
             </article>
           </div>
         </>

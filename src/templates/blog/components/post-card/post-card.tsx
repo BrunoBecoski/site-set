@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Avatar } from "@/components/avatar";
+
 type AuthorProps = {
   name: string
   avatar: string
@@ -54,19 +56,18 @@ export const PostCard = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-3 border-t border-gray-400 pt-3">
-            <div className="relative size-8 rounded-full border-2 border-blue-200 overflow-hidden">
-              <Image
-                src={author.avatar}
-                alt={author.name}
-                width={30}
-                height={30}
-                className="object-cover"
-              />
-            </div>
+          <Avatar.Container>
+            <Avatar.Image
+              src={author.avatar}
+              alt={author.name}
+            />
 
-            <span className="text-body-sm text-gray-300">{author.name}</span>
-          </div>
+            <Avatar.Content>
+              <Avatar.Title>
+                {author.name}
+              </Avatar.Title>
+            </Avatar.Content>
+          </Avatar.Container>
         </div>
       </div>
     </Link>
