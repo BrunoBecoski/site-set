@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Inbox } from "lucide-react";
 
 import { Avatar } from "@/components/avatar";
+import { Markdown } from "@/components/markdown";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -22,7 +23,7 @@ export default function PostPage() {
   return (
     <main>
       {post &&
-        <>
+        <div className="container space-y-12 px-4 md:px-8 mt-8 md:mt-20">
           <Breadcrumb className="">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -43,20 +44,19 @@ export default function PostPage() {
             </BreadcrumbList>
           </Breadcrumb>
 
-          <div className="grid grid-col-1 lg:-cols-[1fr_300px] gap-6 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 lg:gap-12">
             <article className="bg-gray-600 rounded-lg overflow-hidden border-2 border-gray-400">
-              <figure className="relative aspect-16/10 w-full overflow-hidden rounded-lg">
+              <figure className="relative w-full overflow-hidden aspect-30/11 rounded-t-lg">
                 <Image
                   src={post.image}
                   alt={post.title}
-                  width={720}
-                  height={264}
+                  fill
                   className="object-cover"
                 />
               </figure>
 
-              <header className="p-4 md:p-6 lg:p-12 pb-0">
-                <h1 className="text-gray-100 text-heading-lg md:text-heading-xl font-sans text-balance mb-6">
+              <header className="p-4 md:p-6 lg:p-12">
+                <h1 className="text-gray-100 text-heading-lg md:text-heading-xl font-sans text-balance mb-6 md:mb-8">
                   {post.title}
                 </h1>
 
@@ -80,9 +80,15 @@ export default function PostPage() {
                   </Avatar.Content>
                 </Avatar.Container>
               </header>
+
+              <div className="prose prove-invert max-w-none px-4 md:px-6 lg:px-12">
+                <Markdown
+                  content={post.body.raw}
+                />
+              </div>
             </article>
           </div>
-        </>
+        </div>
       }
 
       {!post &&

@@ -48,8 +48,7 @@ export const HeroSection = () => {
           <Image 
             src="/hero-section.svg"
             alt="Ilustração com ícones de loja"
-            width={491}
-            height={491}
+            fill
             className="-h-full w-auto object-contain"
           />
         </div>
