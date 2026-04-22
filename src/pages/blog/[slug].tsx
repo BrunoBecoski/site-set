@@ -14,13 +14,23 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import { Facebook, LinkedIn, Slack } from "@/components/icons";
+import { useShare } from "@/hooks";
 
 export default function PostPage() {
   const router = useRouter()
+  
   const slug = router.query.slug as string
   const post = allPosts.find((post) => post.slug.toLowerCase() === slug?.toLowerCase())
+  
   const publishedDate = new Date(post?.date || new Date).toLocaleDateString('pt-BR')
+
+  const postUrl = `https://www.site.set/blog/${slug}`
+  
+  const { shareButtons } = useShare({
+    url: postUrl,
+    title: post?.title,
+    text: post?.description,
+  })
 
   return (
     <main>
@@ -98,24 +108,23 @@ export default function PostPage() {
                 </h2>
 
                 <div className="space-y-3 flex flex-col">
-                  <Button variant="outline" className="group justify-start gap-2">
-                    <LinkedIn className="group-hover:fill-blue-200"/>
-                    LinkedIn
-                  </Button>
-          
-                  <Button variant="outline" className="group justify-start gap-2">
-                    <Facebook className="group-hover:fill-blue-200"/>
-                    Facebook
-                  </Button>
-
-                  <Button variant="outline" className="group justify-start gap-2">
-                    <Slack className="group-hover:fill-blue-200"/>
-                    Slack
-                  </Button>
-
+                  {
+                    shareButtons.map((provider) => (
+                      <Button 
+                        key={provider.provider}
+                        variant="outline"
+                        onClick={provider.action}
+                        className="group justify-start gap-2"
+                      >
+                        {provider.icon}
+                        {provider.name}
+                      </Button>
+                    ))
+                  }
+  
                   <Button variant="outline" className="justify-start gap-2">
                     <LucideLink className="size-4" />
-                    Slack
+                    Copiar link
                   </Button>
                 </div>
               </div>
