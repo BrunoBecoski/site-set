@@ -14,7 +14,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import { useShare } from "@/hooks";
+import { useShare } from "@/hooks/use-share/index";
 
 export default function PostPage() {
   const router = useRouter()
@@ -121,11 +121,6 @@ export default function PostPage() {
                       </Button>
                     ))
                   }
-  
-                  <Button variant="outline" className="justify-start gap-2">
-                    <LucideLink className="size-4" />
-                    Copiar link
-                  </Button>
                 </div>
               </div>
             </aside>
