@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Menu } from "lucide-react";
 
 import { Logo } from "../../logo";
 import { ActiveLink } from "../../active-link";
@@ -12,12 +13,18 @@ export const Header = () => {
           <Logo />
 
           <div className="flex items-center gap-6">
-            <ActiveLink href="/">Início</ActiveLink>
+            <div className="hidden md:flex items-center gap-6">
+              <ActiveLink href="/">Início</ActiveLink>
             
-            <ActiveLink href="/blog">Blog</ActiveLink>
+              <ActiveLink href="/blog">Blog</ActiveLink>
+            </div>
             
             <Button variant="secondary" asChild>
               <Link href="/comecar">Começar</Link>
+            </Button>
+
+            <Button variant="icon" size="icon" className="flex md:hidden">
+                <Menu className="size-5"/>
             </Button>
           </div>
         </div>

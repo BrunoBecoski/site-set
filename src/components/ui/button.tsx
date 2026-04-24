@@ -12,20 +12,13 @@ const buttonVariants = cva(
         default: "bg-blue-300 text-white hover:bg-blue-200 rounded-full",
         secondary:
           "bg-gray-100 text-gray-800 hover:bg-blue-100 rounded-full aria-expanded:bg-gray-100 aria-expanded:text-gray-800",
-        outline: "border text-gray-200 border-gray-400 bg-gray-700 transition-colors duration-200 hover:text-blue-200 hover:border-blue-300"
+        outline: "border text-gray-200 border-gray-400 bg-gray-700 transition-colors duration-200 hover:text-blue-200 hover:border-blue-300",
+        icon: "bg-gray-400 text-gray-100 rounded-full hover:bg-blue-300"
       },
       size: {
         default:
           "h-11 gap-1.5 px-4 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        icon: "size-8",
-        "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+        icon: "size-9 p-5",
       },
     },
     defaultVariants: {
