@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import { Logo } from "../../logo";
 import { ActiveLink } from "../../active-link";
@@ -30,12 +30,15 @@ export const Header = () => {
             </Button>
 
             <div className="flex md:hidden">
-              <Button variant="icon" size="icon" onClick={handleMenu} >
-                <Menu className="size-5" />
+              <Button variant="icon" size="icon" onClick={handleMenu}>
+                {isOpen 
+                  ? <X className="size-5" />
+                  : <Menu className="size-5" />
+                }
               </Button>
 
               {isOpen &&
-                <div className="flex gap-6 flex-col items-center fixed bg-gray-700 top-20 right-0 p-8 border-b border-white/10 backdrop-blur">
+                <div className="flex gap-6 flex-col items-center fixed bg-gray-500/90 p-8 top-20 right-0 border-b border-l border-white/10 animate-opacity">
                   <ActiveLink href="/">Início</ActiveLink>
                   <ActiveLink href="/blog">Blog</ActiveLink>
                 </div>
