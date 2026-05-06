@@ -2,10 +2,9 @@ import { Post } from "contentlayer/generated";
 import Link from "next/link";
 import Image from "next/image";
 
-import { useShare } from "@/hooks/use-share/index";
 import { Avatar } from "@/components/avatar";
-import { Button } from "@/components/ui/button";
 import { Markdown } from "@/components/markdown";
+import { Share } from "@/components/share";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -21,12 +20,6 @@ export type PostSlugProps = {
 export const PostSlug = ({ post }: PostSlugProps) => {
   const publishedDate = new Date(post?.date || new Date).toLocaleDateString('pt-BR')
   const postUrl = `https://www.site.set/blog/${post.slug}`
-
-  const { shareButtons } = useShare({
-    url: postUrl,
-    title: post?.title,
-    text: post?.description,
-  })
 
   return (
     <main>
@@ -53,20 +46,12 @@ export const PostSlug = ({ post }: PostSlugProps) => {
             </BreadcrumbList>
           </Breadcrumb>
 
-          <div className="flex gap-2 lg:hidden ml-auto">
-            {
-              shareButtons.map((provider) => (
-                <Button
-                  key={provider.provider}
-                  variant="outline"
-                  onClick={provider.action}
-                  className="group p-3"
-                >
-                  {provider.icon}
-                </Button>
-              ))
-            }
-          </div>
+          <Share
+            variant="header"
+            url={postUrl}
+            title={post.title}
+            description={post.description}
+          />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
@@ -114,29 +99,12 @@ export const PostSlug = ({ post }: PostSlugProps) => {
             </div>
           </article>
 
-          <aside className="space-y-6 hidden lg:block">
-            <div className="bg-gray-700 p-4 md:p-6">
-              <h2 className="mb-5 text-white text-heading-xs">
-                Compartilhar
-              </h2>
-
-              <div className="space-y-3 flex flex-col">
-                {
-                  shareButtons.map((provider) => (
-                    <Button
-                      key={provider.provider}
-                      variant="outline"
-                      onClick={provider.action}
-                      className="group justify-start gap-2"
-                    >
-                      {provider.icon}
-                      {provider.name}
-                    </Button>
-                  ))
-                }
-              </div>
-            </div>
-          </aside>
+          <Share
+            variant="aside"
+            url={postUrl}
+            title={post.title}
+            description={post.description}
+          />
         </div>
       </div>
     </main>

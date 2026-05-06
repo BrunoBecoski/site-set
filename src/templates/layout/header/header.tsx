@@ -5,8 +5,8 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
-import { ActiveLink } from "../../active-link";
-import { Button } from "../../ui/button";
+import { ActiveLink } from "@/components/active-link";
+import { Button } from "@/components/ui/button";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)

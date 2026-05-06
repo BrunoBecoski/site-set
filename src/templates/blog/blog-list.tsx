@@ -5,9 +5,9 @@ import { Post } from "contentlayer/generated";
 import { Inbox } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-import { Search } from "./components/search";
-import { PostCard } from "./components/post-card";
-import { PostGridCard } from "./components/post-grid-card";
+import { Search } from "@/components/search";
+import { Card } from "@/components/card";
+import { GridCard } from "@/components/grid-card";
 
 export type BlogListProps = {
   posts: Post[]
@@ -51,9 +51,9 @@ export function BlogList({ posts }: BlogListProps) {
       </header>
 
       {hasPosts &&
-        <PostGridCard>
+        <GridCard>
           {postList.map((post) => (
-            <PostCard
+            <Card
               key={post._id}
               slug={post.slug}
               date={new Date(post.date).toLocaleDateString('pt-BR')}
@@ -67,7 +67,7 @@ export function BlogList({ posts }: BlogListProps) {
             />
 
           ))}
-        </PostGridCard>
+        </GridCard>
       }
 
       {!hasPosts &&

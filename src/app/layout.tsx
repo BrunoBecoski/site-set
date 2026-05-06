@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 
-import { Layout } from "@/components/layout";
+import { Layout } from "@/templates/layout";
 
 export const metadata = {
   title: 'Site.set',

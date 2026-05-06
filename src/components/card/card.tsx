@@ -8,7 +8,7 @@ type AuthorProps = {
   avatar: string
 }
 
-type PostCardProps = {
+type CardProps = {
   slug: string
   date: string
   title: string
@@ -17,14 +17,14 @@ type PostCardProps = {
   author: AuthorProps
 }
 
-export const PostCard = ({
+export const Card = ({
   slug,
   date,
   title,
   description,
   image,
   author
-}: PostCardProps) => {
+}: CardProps) => {
   return (
     <Link
       href={`/blog/${slug}`}
