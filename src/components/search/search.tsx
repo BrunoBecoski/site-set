@@ -34,7 +34,6 @@ export const Search = () => {
   }
 
   useEffect(() => {
-    console.log(hasQuery)
     if(hasQuery) {
       inputRef.current?.focus()
     }

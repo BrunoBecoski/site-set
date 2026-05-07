@@ -28,7 +28,6 @@ export const useClipboard = ({ timeout = 2000 }: UseClipboardProps) => {
 
 
   useEffect(() => {
-    console.log(isCopied)
     if (isCopied) {
       const timer = setTimeout(() => {
         setIsCopied(false)
